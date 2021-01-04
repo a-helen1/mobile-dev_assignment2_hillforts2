@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.startActivityForResult
 import org.wit.hillforts.R
 import org.wit.hillforts.main.MainApp
@@ -37,6 +38,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     when (item?.itemId) {
       R.id.item_add -> startActivityForResult<HillfortActivity>(0)
+      R.id.item_map -> startActivity<HillfortMapsActivity>()
     }
     return super.onOptionsItemSelected(item)
   }

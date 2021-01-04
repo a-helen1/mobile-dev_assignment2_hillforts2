@@ -21,4 +21,7 @@
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="title_activity_signup">Signup</string>
+    <string name="hillfortTitle">Hillfort Title</string>
+    <string name="hillfortDescription">Hillfort Description</string>
+    <string name="hillfortImage">Hillfort Image</string>
 </resources>
