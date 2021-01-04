@@ -30,8 +30,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="339dp"
-            android:layout_height="104dp"
+            android:layout_width="349dp"
+            android:layout_height="122dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
@@ -41,8 +41,8 @@
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView"
-            android:layout_width="255dp"
-            android:layout_height="284dp"
+            android:layout_width="395dp"
+            android:layout_height="483dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
