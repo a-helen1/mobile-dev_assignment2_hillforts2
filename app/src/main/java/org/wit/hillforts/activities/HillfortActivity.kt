@@ -32,6 +32,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
   //flag to set image 2
   var image1 = false
+  var edit = false
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -43,7 +44,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
     app = application as MainApp
 
-    var edit = false
+
 
 
     if (intent.hasExtra("hillfort_edit")) {
@@ -62,7 +63,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         chooseImage2.setText(R.string.Change_hillfort_image)
       }
 
-      //set checkbox form model
+      //set checkbox from model
 
       if (hillfort.visited) {
         visitedHillfort.isChecked = true
@@ -75,23 +76,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
       if (visitedHillfort.isChecked) {
         hillfort.visited = true
       }
-    }
-
-    btnAdd.setOnClickListener() {
-      hillfort.title = hillfortTitle.text.toString()
-      hillfort.description = hillfortDescription.text.toString()
-      if (hillfort.title.isEmpty()) {
-        toast(R.string.enter_hillfort_title)
-      } else {
-        if (edit) {
-          app.hillforts.update(hillfort.copy())
-        } else {
-          app.hillforts.create(hillfort.copy())
-        }
-      }
-      info("add button pressed: ${hillfort}")
-      setResult(AppCompatActivity.RESULT_OK)
-      finish()
     }
 
     chooseImage1.setOnClickListener {
@@ -122,6 +106,22 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     when (item?.itemId) {
+      R.id.item_save -> {
+        hillfort.title = hillfortTitle.text.toString()
+        hillfort.description = hillfortDescription.text.toString()
+        if (hillfort.title.isEmpty()) {
+          toast(R.string.enter_hillfort_title)
+        } else {
+          if (edit) {
+            app.hillforts.update(hillfort.copy())
+          } else {
+            app.hillforts.create(hillfort.copy())
+          }
+        }
+        info("add button pressed: ${hillfort}")
+        setResult(AppCompatActivity.RESULT_OK)
+        finish()
+      }
       R.id.item_cancel -> {
         finish()
       }
