@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.CheckedTextView
 import kotlinx.android.synthetic.main.activity_hillfort.*
-import kotlinx.android.synthetic.main.activity_hillfort.view.*
-import kotlinx.android.synthetic.main.activity_map.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
@@ -68,8 +65,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
       if (hillfort.visited) {
         visitedHillfort.isChecked = true
       }
-
-      btnAdd.setText(R.string.save_hillfort)
     }
 
     visitedHillfort.setOnClickListener() {
