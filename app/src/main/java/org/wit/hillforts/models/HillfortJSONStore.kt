@@ -39,6 +39,8 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
         return foundHillfort
     }
 
+
+
     override fun create(hillfort: HillfortModel) {
         hillfort.id = generateRandomId()
         hillforts.add(hillfort)

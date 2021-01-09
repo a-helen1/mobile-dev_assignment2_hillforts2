@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_hillfort.*
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
@@ -48,7 +49,9 @@ class HillfortFavouriteListActivity : AppCompatActivity(), HillfortListener {
   }
 
   private fun loadHillforts() {
-    showHillforts(app.hillforts.findAll())
+    val allHillforts = app.hillforts.findAll()
+    val favHillforts = allHillforts.filter { it.isFavorite }
+    showHillforts(favHillforts)
   }
 
   fun showHillforts (hillforts: List<HillfortModel>) {
