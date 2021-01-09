@@ -41,9 +41,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
     app = application as MainApp
 
-
-
-
     if (intent.hasExtra("hillfort_edit")) {
       edit = true
       hillfort = intent.extras?.getParcelable<HillfortModel>("hillfort_edit")!!
@@ -51,6 +48,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
       hillfortDescription.setText(hillfort.description)
       hillfortImage1.setImageBitmap(readImageFromPath(this, hillfort.image1))
       hillfortImage2.setImageBitmap(readImageFromPath(this, hillfort.image2))
+      hillfortRating.rating = hillfort.rating
+      ratingVal.text = hillfort.rating.toString()
 
       // change button text if an image exisis
 
@@ -81,6 +80,12 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     chooseImage2.setOnClickListener {
       image1 = false
       showImagePicker(this, IMAGE_REQUEST)
+    }
+
+    hillfortRating.setOnRatingBarChangeListener { _, fl, _ ->
+     hillfort.rating = fl
+      ratingVal.text = "$fl"
+
     }
 
     hillfortLocation.setOnClickListener {
