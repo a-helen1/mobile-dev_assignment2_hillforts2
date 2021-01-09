@@ -26,4 +26,5 @@
     <string name="hillfortImage">Hillfort Image</string>
     <string name="menu_saveHillfort">Save</string>
     <string name="hillfort_rating">Rating</string>
+    <string name="title_activity_hillfort_favorite_list">HillfortFavoriteListActivity</string>
 </resources>
