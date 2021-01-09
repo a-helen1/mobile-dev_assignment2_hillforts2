@@ -50,6 +50,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
       hillfortImage2.setImageBitmap(readImageFromPath(this, hillfort.image2))
       hillfortRating.rating = hillfort.rating
       ratingVal.text = hillfort.rating.toString()
+      isFavorite.isChecked = hillfort.isFavorite
 
       // change button text if an image exisis
 
@@ -62,7 +63,13 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
       //set checkbox from model
 
       if (hillfort.visited) {
-        visitedHillfort.isChecked = true
+        visitedHillfort.isChecked
+      }
+    }
+
+    isFavorite.setOnClickListener(){
+      if (isFavorite.isChecked) {
+        hillfort.isFavorite = true
       }
     }
 
