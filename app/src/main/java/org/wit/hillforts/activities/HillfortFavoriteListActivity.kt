@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_hillfort.*
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
@@ -13,13 +14,13 @@ import org.wit.hillforts.R
 import org.wit.hillforts.main.MainApp
 import org.wit.hillforts.models.HillfortModel
 
-class HillfortListActivity : AppCompatActivity(), HillfortListener {
+class HillfortFavouriteListActivity : AppCompatActivity(), HillfortListener {
 
   lateinit var app: MainApp
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_hillfort_list)
+    setContentView(R.layout.activity_hillfort_favorite_list)
     app = application as MainApp
 
     toolbar.title = title
@@ -39,7 +40,6 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
     when (item?.itemId) {
       R.id.item_add -> startActivityForResult<HillfortActivity>(0)
       R.id.item_map -> startActivity<HillfortMapsActivity>()
-      R.id.item_favorite -> startActivity<HillfortFavouriteListActivity>()
     }
     return super.onOptionsItemSelected(item)
   }
@@ -49,7 +49,9 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
   }
 
   private fun loadHillforts() {
-    showHillforts(app.hillforts.findAll())
+    val allHillforts = app.hillforts.findAll()
+    val favHillforts = allHillforts.filter { it.isFavorite }
+    showHillforts(favHillforts)
   }
 
   fun showHillforts (hillforts: List<HillfortModel>) {
