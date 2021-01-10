@@ -19,4 +19,10 @@
         android:icon="@drawable/ic_menu_favorites"
         android:title="@string/menu_favourite_hillforts"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/item_logout"
+        android:icon="@drawable/ic_menu_logout_24"
+        android:title="@string/menu_logout"
+        android:visible="true"
+        app:showAsAction="never" />
 </menu>

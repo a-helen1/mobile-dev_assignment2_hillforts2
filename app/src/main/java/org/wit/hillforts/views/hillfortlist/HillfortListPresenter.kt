@@ -18,6 +18,10 @@ class HillfortListPresenter ( view: BaseView) : BasePresenter(view) {
 
   fun getHillforts() = app.hillforts.findAll()
 
+  fun doLogout() {
+    view?.navigateTo(VIEW.LOGIN)
+  }
+
   fun doAddHillfort() {
     view?.navigateTo(VIEW.HILLFORT)
     //view?.startActivityForResult<HillfortView>(0)
