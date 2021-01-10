@@ -11,22 +11,26 @@ import org.wit.hillforts.R
 import org.wit.hillforts.activities.HillfortAdapter
 import org.wit.hillforts.activities.HillfortListener
 import org.wit.hillforts.models.HillfortModel
+import org.wit.hillforts.views.BaseView
 
-class HillfortFavouriteListView : AppCompatActivity(), HillfortListener {
+class HillfortFavouriteListView : BaseView(), HillfortListener {
 
   lateinit var presenter: HillfortFavouriteListPresenter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_hillfort_list)
-    toolbar.title=title
+    setContentView(R.layout.activity_hillfort_favorite_list)
     setSupportActionBar(toolbar)
 
-    presenter = HillfortFavouriteListPresenter(this)
+    presenter = initPresenter(HillfortFavouriteListPresenter(this)) as HillfortFavouriteListPresenter
+
     val layoutManager = LinearLayoutManager(this)
     recyclerView.layoutManager = layoutManager
-    recyclerView.adapter =
-        HillfortAdapter(presenter.getHillforts(), this)
+    presenter.loadHillforts()
+  }
+
+  override fun showHillforts(hillforts: List<HillfortModel>) {
+    recyclerView.adapter = HillfortAdapter(hillforts, this)
     recyclerView.adapter?.notifyDataSetChanged()
   }
 
@@ -49,7 +53,8 @@ class HillfortFavouriteListView : AppCompatActivity(), HillfortListener {
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    recyclerView.adapter?.notifyDataSetChanged()
+    presenter.loadHillforts()
+    //recyclerView.adapter?.notifyDataSetChanged()
     super.onActivityResult(requestCode, resultCode, data)
   }
 }
