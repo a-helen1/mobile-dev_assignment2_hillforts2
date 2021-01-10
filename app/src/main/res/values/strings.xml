@@ -4,6 +4,7 @@
     <string name="button_addHillfort">Add Hillfort</string>
     <string name="hint_hillfortDescription">Hillfort Description</string>
     <string name="menu_addHillfort">Add</string>
+    <string name="menu_favourite_hillforts">Favorites</string>
     <string name="menu_cancelHillfort">Cancel</string>
     <string name="menu_deleteHillfort">Delete</string>
     <string name="menu_up">UP</string>
@@ -26,4 +27,12 @@
     <string name="hillfortImage">Hillfort Image</string>
     <string name="menu_saveHillfort">Save</string>
     <string name="hillfort_rating">Rating</string>
+    <string name="hillfort_favorite">Favourite</string>
+    <string name="title_activity_login"> Signup/Login to Hillforts</string>
+    <string name="title_activity_hillfort_favorite_list">HillfortFavoriteListActivity</string>
+    <string name="menu_showMap">Show Map</string>
+    <string name="menu_logout">Logout</string>
+    <string name="title_activity_hillfort_list">Hillforts</string>
+    <string name="title_activity_hillfort">Hillfort</string>
+    <string name="title_activity_location">Hillfort</string>
 </resources>

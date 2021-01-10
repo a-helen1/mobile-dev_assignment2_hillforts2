@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.wit.hillforts.activities.HillfortActivity">
+    tools:context="org.wit.hillforts.views.hillfort.HillfortView">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -78,15 +78,17 @@
 
             <CheckBox
                 android:id="@+id/visitedHillfort"
-                android:layout_width="380dp"
-                android:layout_height="45dp"
+                android:layout_width="130dp"
+                android:layout_height="33dp"
                 android:layout_marginTop="220dp"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:text="@string/hillfort_visited"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="@+id/hillfortDescription"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/hillfortDescription"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:onClick="onCheckboxClicked"
+                app:layout_constraintEnd_toEndOf="@+id/chooseImage1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/chooseImage1"
                 app:layout_constraintTop_toBottomOf="@+id/hillfortDescription" />
 
             <Button
@@ -173,6 +175,20 @@
                 app:layout_constraintEnd_toEndOf="@+id/hillfortRating"
                 app:layout_constraintStart_toStartOf="@+id/hillfortRating"
                 app:layout_constraintTop_toBottomOf="@+id/hillfortRating" />
+
+            <CheckBox
+                android:id="@+id/isFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220dp"
+                android:checked="false"
+                android:gravity="center"
+                android:text="@string/hillfort_favorite"
+                android:onClick="onCheckboxClicked"
+                app:layout_constraintEnd_toEndOf="@+id/chooseImage2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/chooseImage2"
+                app:layout_constraintTop_toBottomOf="@+id/hillfortDescription" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
