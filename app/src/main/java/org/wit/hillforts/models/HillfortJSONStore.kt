@@ -56,13 +56,15 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
             foundHillfort.lng = hillfort.lng
             foundHillfort.zoom = hillfort.zoom
             foundHillfort.visited = hillfort.visited
-            foundHillfort.rating =hillfort.rating
+            foundHillfort.rating = hillfort.rating
+            foundHillfort.isFavorite = hillfort.isFavorite
             serialize()
         }
     }
 
     override fun delete(hillfort: HillfortModel) {
-        hillforts.remove(hillfort)
+        val foundHillfort: HillfortModel? = hillforts.find { it.id == hillfort.id }
+        hillforts.remove(foundHillfort)
         serialize()
     }
 
