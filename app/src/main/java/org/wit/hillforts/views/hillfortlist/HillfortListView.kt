@@ -11,22 +11,26 @@ import org.wit.hillforts.R
 import org.wit.hillforts.activities.HillfortAdapter
 import org.wit.hillforts.activities.HillfortListener
 import org.wit.hillforts.models.HillfortModel
+import org.wit.hillforts.views.BaseView
 
-class HillfortListView : AppCompatActivity(), HillfortListener {
+class HillfortListView : BaseView(), HillfortListener {
 
   lateinit var presenter: HillfortListPresenter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_hillfort_list)
-    toolbar.title=title
     setSupportActionBar(toolbar)
 
-    presenter = HillfortListPresenter(this)
+    presenter = initPresenter(HillfortListPresenter(this)) as HillfortListPresenter
+
     val layoutManager = LinearLayoutManager(this)
     recyclerView.layoutManager = layoutManager
-    recyclerView.adapter =
-        HillfortAdapter(presenter.getHillforts(), this)
+    presenter.loadHillforts()
+  }
+
+  override fun showHillforts(hillforts: List<HillfortModel>) {
+    recyclerView.adapter = HillfortAdapter(hillforts, this)
     recyclerView.adapter?.notifyDataSetChanged()
   }
 
@@ -38,7 +42,7 @@ class HillfortListView : AppCompatActivity(), HillfortListener {
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     when (item?.itemId) {
       R.id.item_add -> presenter.doAddHillfort()
-      R.id.item_map -> presenter.doShowHillfortkMap()
+      R.id.item_map -> presenter.doShowHillfortMap()
       R.id.item_favorite -> presenter.doShowFavourites()
     }
     return super.onOptionsItemSelected(item)
@@ -49,7 +53,8 @@ class HillfortListView : AppCompatActivity(), HillfortListener {
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    recyclerView.adapter?.notifyDataSetChanged()
+    presenter.loadHillforts()
+    //recyclerView.adapter?.notifyDataSetChanged()
     super.onActivityResult(requestCode, resultCode, data)
   }
 }
