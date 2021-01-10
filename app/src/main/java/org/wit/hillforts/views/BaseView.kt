@@ -48,10 +48,10 @@ open abstract class BaseView () : AppCompatActivity(), AnkoLogger {
     return presenter
     }
 
-  fun init(toolbar: androidx.appcompat.widget.Toolbar) {
+  fun init(toolbar: androidx.appcompat.widget.Toolbar, upEnabled: Boolean) {
     toolbar.title = title
     setSupportActionBar(toolbar)
-    //supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
+    supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
     val user = FirebaseAuth.getInstance().currentUser
     if (user != null) {
       toolbar.title = "${title}: ${user.email}"

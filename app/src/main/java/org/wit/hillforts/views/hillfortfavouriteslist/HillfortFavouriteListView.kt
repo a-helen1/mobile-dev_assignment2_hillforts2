@@ -21,6 +21,7 @@ class HillfortFavouriteListView : BaseView(), HillfortListener {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_hillfort_favorite_list)
     setSupportActionBar(toolbar)
+    super.init(toolbar, true)
 
     presenter = initPresenter(HillfortFavouriteListPresenter(this)) as HillfortFavouriteListPresenter
 
