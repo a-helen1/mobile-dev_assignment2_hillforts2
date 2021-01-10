@@ -1,6 +1,7 @@
 package org.wit.hillforts.views.login
 
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.toast
 import org.wit.hillforts.R
@@ -14,6 +15,7 @@ class LoginView : BaseView() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_login)
     init(toolbar)
+    progressBar.visibility = View.GONE
 
     presenter = initPresenter(LoginPresenter(this)) as LoginPresenter
 
@@ -38,5 +40,13 @@ class LoginView : BaseView() {
         presenter.doLogin(email,password)
       }
     }
+  }
+
+  override fun showProgress() {
+    progressBar.visibility = View.VISIBLE
+  }
+
+  override fun hideProgress() {
+    progressBar.visibility = View.GONE
   }
 }

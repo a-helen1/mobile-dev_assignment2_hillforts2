@@ -1,5 +1,6 @@
 package org.wit.hillforts.views.hillfortlist
 
+import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.startActivityForResult
@@ -19,6 +20,7 @@ class HillfortListPresenter ( view: BaseView) : BasePresenter(view) {
   fun getHillforts() = app.hillforts.findAll()
 
   fun doLogout() {
+    FirebaseAuth.getInstance().signOut()
     view?.navigateTo(VIEW.LOGIN)
   }
 

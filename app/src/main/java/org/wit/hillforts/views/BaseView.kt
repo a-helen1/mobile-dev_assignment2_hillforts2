@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Parcelable
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.AnkoLogger
 import org.wit.hillforts.models.HillfortModel
 import org.wit.hillforts.views.hillfort.HillfortView
@@ -50,6 +51,11 @@ open abstract class BaseView () : AppCompatActivity(), AnkoLogger {
   fun init(toolbar: androidx.appcompat.widget.Toolbar) {
     toolbar.title = title
     setSupportActionBar(toolbar)
+    //supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
+    val user = FirebaseAuth.getInstance().currentUser
+    if (user != null) {
+      toolbar.title = "${title}: ${user.email}"
+    }
   }
 
   override fun onDestroy() {
