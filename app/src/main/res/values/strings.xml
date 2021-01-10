@@ -28,5 +28,6 @@
     <string name="menu_saveHillfort">Save</string>
     <string name="hillfort_rating">Rating</string>
     <string name="hillfort_favorite">Favourite</string>
+    <string name="title_activity_login"> Signup/Login to Hillforts</string>
     <string name="title_activity_hillfort_favorite_list">HillfortFavoriteListActivity</string>
 </resources>
