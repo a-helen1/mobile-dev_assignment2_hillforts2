@@ -2,7 +2,6 @@ package org.wit.hillforts.views
 
 import android.content.Intent
 import android.os.Parcelable
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.AnkoLogger

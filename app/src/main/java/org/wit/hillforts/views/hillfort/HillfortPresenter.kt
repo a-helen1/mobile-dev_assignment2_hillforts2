@@ -1,13 +1,12 @@
 package org.wit.hillforts.views.hillfort
 
 import android.content.Intent
-import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import org.wit.hillforts.helpers.showImagePicker
-import org.wit.hillforts.main.MainApp
 import org.wit.hillforts.models.HillfortModel
 import org.wit.hillforts.models.Location
 import org.wit.hillforts.views.*
-import org.wit.hillforts.views.location.EditLocationView
 
 class HillfortPresenter(view: BaseView) : BasePresenter(view) {
 
@@ -40,12 +39,16 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
         hillfort.isFavorite = isFavourite
         hillfort.visited = visitedHillfort
         hillfort.rating = hillfortRating
-        if (edit) {
-            app.hillforts.update(hillfort)
-        } else {
-            app.hillforts.create(hillfort)
+        doAsync {
+            if (edit) {
+                app.hillforts.update(hillfort)
+            } else {
+                app.hillforts.create(hillfort)
+            }
+            uiThread {
+                view?.finish()
+            }
         }
-        view?.finish()
     }
 
     fun doCancel() {
