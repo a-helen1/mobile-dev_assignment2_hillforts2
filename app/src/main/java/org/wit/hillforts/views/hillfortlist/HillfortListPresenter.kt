@@ -9,6 +9,7 @@ import org.wit.hillforts.main.MainApp
 import org.wit.hillforts.models.HillfortModel
 import org.wit.hillforts.views.hillfort.HillfortView
 import org.wit.hillforts.views.hillfortfavouriteslist.HillfortFavouriteListView
+import org.wit.hillforts.views.map.HillfortMapView
 
 class HillfortListPresenter (val view: HillfortListView) {
 
@@ -29,7 +30,7 @@ class HillfortListPresenter (val view: HillfortListView) {
   }
 
   fun doShowHillfortkMap() {
-    view.startActivity<HillfortMapsActivity>()
+    view.startActivity<HillfortMapView>()
   }
 
   fun doShowFavourites() {

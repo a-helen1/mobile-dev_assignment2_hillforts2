@@ -38,7 +38,7 @@ class HillfortFavouriteListView : AppCompatActivity(), HillfortListener {
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     when (item?.itemId) {
       R.id.item_add -> presenter.doAddHillfort()
-      R.id.item_map -> presenter.doShowHillfortkMap()
+      R.id.item_map -> presenter.doShowHillfortMap()
       R.id.item_favorite -> presenter.doShowFavourites()
     }
     return super.onOptionsItemSelected(item)
