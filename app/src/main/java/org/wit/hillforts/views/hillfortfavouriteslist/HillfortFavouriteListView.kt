@@ -1,4 +1,4 @@
-package org.wit.hillforts.activities
+package org.wit.hillforts.views.hillfortfavouriteslist
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,11 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.wit.hillforts.R
+import org.wit.hillforts.activities.HillfortAdapter
+import org.wit.hillforts.activities.HillfortListener
 import org.wit.hillforts.models.HillfortModel
 
-class HillfortListView : AppCompatActivity(), HillfortListener {
+class HillfortFavouriteListView : AppCompatActivity(), HillfortListener {
 
-  lateinit var presenter: HillfortListPresenter
+  lateinit var presenter: HillfortFavouriteListPresenter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -20,7 +22,7 @@ class HillfortListView : AppCompatActivity(), HillfortListener {
     toolbar.title=title
     setSupportActionBar(toolbar)
 
-    presenter = HillfortListPresenter(this)
+    presenter = HillfortFavouriteListPresenter(this)
     val layoutManager = LinearLayoutManager(this)
     recyclerView.layoutManager = layoutManager
     recyclerView.adapter =

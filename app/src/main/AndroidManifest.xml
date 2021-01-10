@@ -24,7 +24,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".activities.EditLocationView"
+            android:name=".views.location.EditLocationView"
             android:label="@string/title_activity_map" />
 
         <activity android:name=".activities.SplashScreenActivity">
@@ -35,13 +35,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.HillfortListView" />
+        <activity android:name=".views.hillfortlist.HillfortListView" />
         <activity
-            android:name=".activities.HillfortView"
-            android:parentActivityName=".activities.HillfortListView" />
+            android:name=".views.hillfort.HillfortView"
+            android:parentActivityName=".views.hillfortlist.HillfortListView" />
 
         <activity
-            android:name=".activities.HillfortFavouriteListActivity"
+            android:name=".views.hillfortfavouriteslist.HillfortFavouriteListView"
             android:label="@string/title_activity_hillfort_favorite_list">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

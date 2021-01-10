@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import org.wit.hillforts.R
-import org.wit.hillforts.main.MainApp
+import org.wit.hillforts.views.hillfortlist.HillfortListView
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,16 +1,12 @@
-package org.wit.hillforts.activities
+package org.wit.hillforts.views.hillfort
 
 import android.content.Intent
-import kotlinx.android.synthetic.main.activity_hillfort.*
 import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.toast
-import org.wit.hillforts.R
-import org.wit.hillforts.helpers.readImage
 import org.wit.hillforts.helpers.showImagePicker
 import org.wit.hillforts.main.MainApp
 import org.wit.hillforts.models.HillfortModel
 import org.wit.hillforts.models.Location
-import java.util.*
+import org.wit.hillforts.views.location.EditLocationView
 
 class HillfortPresenter(val view: HillfortView) {
 
