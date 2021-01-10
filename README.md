@@ -11,3 +11,9 @@ V1.0 - Baseline functionality
     Hillfort rating added
     Landscape layouts added
     gitflow master/develop/feature/release implemented
+
+V1.1 - Good Functionality
+        Mark as Favourite
+        Favourites View
+        Model View Presenter
+        Firebase Authentication
