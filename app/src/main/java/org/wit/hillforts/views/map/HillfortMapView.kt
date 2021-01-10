@@ -1,12 +1,8 @@
 package org.wit.hillforts.views.map
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.Menu
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
-import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import kotlinx.android.synthetic.main.activity_hillfort_list.toolbar
 import kotlinx.android.synthetic.main.activity_hillfort_maps.*
 import org.wit.hillforts.R
