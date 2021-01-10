@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.CheckBox
 import kotlinx.android.synthetic.main.activity_hillfort.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -50,6 +52,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
       hillfortImage2.setImageBitmap(readImageFromPath(this, hillfort.image2))
       hillfortRating.rating = hillfort.rating
       ratingVal.text = hillfort.rating.toString()
+      isFavorite.isChecked = hillfort.isFavorite
+      visitedHillfort.isChecked = hillfort.visited
 
       // change button text if an image exisis
 
@@ -57,18 +61,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         chooseImage1.setText(R.string.Change_hillfort_image)
       } else {
         chooseImage2.setText(R.string.Change_hillfort_image)
-      }
-
-      //set checkbox from model
-
-      if (hillfort.visited) {
-        visitedHillfort.isChecked = true
-      }
-    }
-
-    visitedHillfort.setOnClickListener() {
-      if (visitedHillfort.isChecked) {
-        hillfort.visited = true
       }
     }
 
@@ -96,6 +88,28 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         location.zoom = hillfort.zoom
       }
       startActivityForResult(intentFor<MapActivity>().putExtra("location", location), LOCATION_REQUEST)
+    }
+  }
+
+  fun onCheckboxClicked(view: View) {
+    if (view is CheckBox) {
+      val checked: Boolean = view.isChecked
+      when (view.id) {
+        R.id.visitedHillfort -> {
+          if (checked) {
+            hillfort.visited = true
+          } else if (!checked) {
+            hillfort.visited = false
+          }
+        }
+        R.id.isFavorite -> {
+          if (checked) {
+            hillfort.isFavorite = true
+          }else if (!checked) {
+            hillfort.isFavorite = false
+          }
+        }
+      }
     }
   }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context="org.wit.hillforts.activities.HillfortActivity">
+    tools:context="org.wit.hillforts.views.hillfort.HillfortView">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -72,15 +72,32 @@
 
             <CheckBox
                 android:id="@+id/visitedHillfort"
-                android:layout_width="227dp"
-                android:layout_height="36dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:gravity="center_horizontal"
+                android:gravity="center|center_horizontal"
                 android:text="@string/hillfort_visited"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="@+id/hillfortDescription"
-                app:layout_constraintStart_toStartOf="@+id/hillfortDescription"
+                android:textSize="14sp"
+                android:onClick="onCheckboxClicked"
+                app:layout_constraintEnd_toStartOf="@+id/isFavorite"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/hillfortDescription" />
+
+            <CheckBox
+                android:id="@+id/isFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:gravity="center"
+                android:text="@string/hillfort_favorite"
+                android:onClick="onCheckboxClicked"
+                app:layout_constraintBottom_toBottomOf="@+id/visitedHillfort"
+                app:layout_constraintEnd_toEndOf="@+id/hillfortDescription"
+                app:layout_constraintEnd_toStartOf="@+id/hillfortImage1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/visitedHillfort"
+                app:layout_constraintTop_toTopOf="@+id/visitedHillfort" />
 
             <Button
                 android:id="@+id/chooseImage1"

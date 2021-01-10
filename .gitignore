@@ -13,4 +13,7 @@ app/src/release/res/values/google_maps_api.xml
 app/src/debug/res/values/google_maps_api.xml
 /app/src/main/res/values/google_maps_api.xml
 app/google-services.json
+<<<<<<< HEAD
 
+=======
+>>>>>>> 26dcfcb461559925bd324c6d2aed6f08d634f7a8
