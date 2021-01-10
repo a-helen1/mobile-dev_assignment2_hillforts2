@@ -30,13 +30,39 @@ class HillfortView : BaseView(), AnkoLogger {
         presenter = initPresenter(HillfortPresenter(this)) as HillfortPresenter
 
         chooseImage1.setOnClickListener {
+            presenter.cacheHillfort(
+                hillfortTitle.text.toString(),
+                hillfortDescription.text.toString(),
+                visitedHillfort.isChecked,
+                isFavorite.isChecked,
+                hillfortRating.rating
+
+            )
             presenter.doSelectImage1()
         }
         chooseImage2.setOnClickListener {
+            presenter.cacheHillfort(
+                hillfortTitle.text.toString(),
+                hillfortDescription.text.toString(),
+                visitedHillfort.isChecked,
+                isFavorite.isChecked,
+                hillfortRating.rating
+            )
             presenter.doSelectImage2()
         }
 
-        hillfortLocation.setOnClickListener { presenter.doSetLocation()}
+        hillfortLocation.setOnClickListener {
+            presenter.cacheHillfort(
+                hillfortTitle.text.toString(),
+                hillfortDescription.text.toString(),
+                visitedHillfort.isChecked,
+                isFavorite.isChecked,
+                hillfortRating.rating
+            )
+            presenter.doSetLocation()
+        }
+
+
         hillfortRating.setOnRatingBarChangeListener { _, fl, _ ->
             hillfort.rating = fl
             ratingVal.text = "$fl"
@@ -84,7 +110,7 @@ class HillfortView : BaseView(), AnkoLogger {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_hillfort, menu)
-        //if(presenter.edit) menu.getItem(0).setVisible(true)
+        if(presenter.edit) menu.getItem(0).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 

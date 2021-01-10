@@ -39,8 +39,6 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
         return foundHillfort
     }
 
-
-
     override fun create(hillfort: HillfortModel) {
         hillfort.id = generateRandomId()
         hillforts.add(hillfort)
@@ -65,7 +63,8 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
     }
 
     override fun delete(hillfort: HillfortModel) {
-        hillforts.remove(hillfort)
+        val foundHillfort: HillfortModel? = hillforts.find { it.id == hillfort.id }
+        hillforts.remove(foundHillfort)
         serialize()
     }
 

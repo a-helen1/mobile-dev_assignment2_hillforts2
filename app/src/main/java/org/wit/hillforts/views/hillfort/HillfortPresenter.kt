@@ -26,6 +26,14 @@ class HillfortPresenter(view: BaseView) : BasePresenter(view) {
         }
     }
 
+    fun cacheHillfort (title: String, description: String, visited: Boolean, isFavourite: Boolean, hillfortRating: Float) {
+        hillfort.title = title;
+        hillfort.description = description;
+        hillfort.visited = visited;
+        hillfort.isFavorite = isFavourite;
+        hillfort.rating = hillfortRating
+    }
+
     fun doAddOrSave(title: String, description: String, isFavourite: Boolean, visitedHillfort: Boolean, hillfortRating: Float) {
         hillfort.title = title
         hillfort.description = description
