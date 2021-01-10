@@ -14,7 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         iv_landscape.alpha = 0f
         iv_landscape.animate().setDuration(2000).alpha(1f).withEndAction() {
-            val i = Intent(this, HillfortListActivity::class.java)
+            val i = Intent(this, HillfortListView::class.java)
             startActivity(i)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()

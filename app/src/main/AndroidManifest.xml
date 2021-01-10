@@ -35,10 +35,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.HillfortListActivity" />
+        <activity android:name=".activities.HillfortListView" />
         <activity
             android:name=".activities.HillfortView"
-            android:parentActivityName=".activities.HillfortListActivity" />
+            android:parentActivityName=".activities.HillfortListView" />
 
         <activity
             android:name=".activities.HillfortFavouriteListActivity"
