@@ -30,6 +30,10 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
         }
     }
 
+    override fun clear() {
+        hillforts.clear()
+    }
+
     override fun findAll(): List<HillfortModel> {
         return hillforts
     }

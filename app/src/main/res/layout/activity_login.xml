@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="108dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="28dp"
             android:ems="10"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,13 +55,15 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="72dp"
+            android:layout_width="wrap_content"
             android:layout_height="23dp"
             android:layout_marginStart="16dp"
+            android:gravity="center"
             android:text="Email"
             android:textAlignment="textEnd"
-            app:layout_constraintBaseline_toBaselineOf="@+id/email"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/email" />
 
         <EditText
             android:id="@+id/password"
@@ -79,14 +81,17 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="70dp"
+            android:layout_width="wrap_content"
             android:layout_height="29dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
             android:text="Password"
             android:textAlignment="textEnd"
-            app:layout_constraintBaseline_toBaselineOf="@+id/password"
+            app:layout_constraintBottom_toBottomOf="@+id/password"
             app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/textView" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/password" />
 
         <Button
             android:id="@+id/signUp"

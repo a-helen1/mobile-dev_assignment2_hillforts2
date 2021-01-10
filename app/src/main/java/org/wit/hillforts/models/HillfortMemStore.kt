@@ -18,6 +18,10 @@ class HillfortMemStore: HillfortStore, AnkoLogger {
     return hillforts
   }
 
+  override fun clear() {
+    hillforts.clear()
+  }
+
   override fun findById(id: Long): HillfortModel? {
     val foundHillfort: HillfortModel? = hillforts.find { it.id == id }
     return foundHillfort
