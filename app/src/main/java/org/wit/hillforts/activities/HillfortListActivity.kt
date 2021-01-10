@@ -37,7 +37,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     when (item?.itemId) {
-      R.id.item_add -> startActivityForResult<HillfortActivity>(0)
+      R.id.item_add -> startActivityForResult<HillfortView>(0)
       R.id.item_map -> startActivity<HillfortMapsActivity>()
       R.id.item_favorite -> startActivity<HillfortFavouriteListActivity>()
     }
@@ -45,7 +45,7 @@ class HillfortListActivity : AppCompatActivity(), HillfortListener {
   }
 
   override fun onHillfortClick(hillfort: HillfortModel) {
-    startActivityForResult(intentFor<HillfortActivity>().putExtra("hillfort_edit", hillfort),0)
+    startActivityForResult(intentFor<HillfortView>().putExtra("hillfort_edit", hillfort),0)
   }
 
   private fun loadHillforts() {

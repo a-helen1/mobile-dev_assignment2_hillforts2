@@ -37,7 +37,7 @@
 
         <activity android:name=".activities.HillfortListActivity" />
         <activity
-            android:name=".activities.HillfortActivity"
+            android:name=".activities.HillfortView"
             android:parentActivityName=".activities.HillfortListActivity" />
 
         <activity
